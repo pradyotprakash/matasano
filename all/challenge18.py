@@ -45,4 +45,6 @@ def parseCounter(counter):
 	return ''.join([chr(ord(i)-48) for i in ret])[::-1]
 
 if __name__ == '__main__':
+	t = 'Mera joota jai japani!'
+	en = encryptCTR(16, t, key, '\x00'*8)
 	print decryptCTR(16, s, key, '\x00'*8)
