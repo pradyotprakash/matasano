@@ -14,8 +14,8 @@ def normalizedHammingDistance(data, keysize):
 	
 	return float(sum(distances))/(float(len(distances)) * keysize)
 
-def decryptVigenereCipher(data):
-	keysizes = range(2, 41)
+def decryptVigenereCipher(data, maxKeySize):
+	keysizes = range(2, maxKeySize)
 	keysizes.sort(key=lambda x:normalizedHammingDistance(data, x))
 	# print keysizes
 	keysizes = keysizes[0:1]
@@ -33,4 +33,4 @@ def decryptVigenereCipher(data):
 		
 
 if __name__ == '__main__':
-	print decryptVigenereCipher(data)
+	print decryptVigenereCipher(data, 41)
