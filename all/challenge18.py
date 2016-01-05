@@ -21,21 +21,7 @@ def encryptCTR(blockSize, text, key, nonce):
 	return ct
 
 def decryptCTR(blockSize, text, key, nonce):
-	pt = ''
-	counter = 0
-	for i in range(0, len(text), blockSize):
-		keystream = challenge10.encryptECB(16, nonce + parseCounter(counter), key)
-
-		block = text[i:i+blockSize]
-
-		if len(block) == blockSize:
-			pt += challenge10.xor(keystream, block)
-		else:
-			pt += challenge10.xor(keystream[:len(block)], block)
-
-		counter += 1
-
-	return pt	
+	return encryptCTR(blockSize, text, key, nonce)	
 
 def parseCounter(counter):
 	temp = str(counter)
