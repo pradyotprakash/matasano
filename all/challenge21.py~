@@ -42,4 +42,6 @@ if __name__ == '__main__':
 	x = MT19937(5489)
 	a = x.extract_number()
 	
-	print a
+	for i in range(10000000):
+		if a == x.extract_number():
+			print True, i
